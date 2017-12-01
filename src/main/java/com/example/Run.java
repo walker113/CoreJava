@@ -55,9 +55,18 @@ public class Run {
 
             // java.lang.reflect中的Array类
 
-            Node[] nodes = new Node[3];
-            Object o1 = badCopyOf(nodes, 5);
-            Node node1 = ((Node[]) o1)[3];
+            // TODO 使用反射编写泛型数组代码
+//            Node[] nodes = new Node[3];
+//            Object o1 = badCopyOf(nodes, 5);
+//            Node node1 = ((Node[]) o1)[3];
+
+            int[] ints = new int[]{1, 2, 3, 4, 5};
+            Object cInt = goodCopyOf(ints, 7);
+            for (int i = 0; i <5; i++) {
+                System.out.println(((int[]) cInt)[i]);
+            }
+
+
 
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
