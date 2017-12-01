@@ -25,11 +25,15 @@ public class ObjectAnalyzer
       if (cl == String.class) return (String) obj;
       if (cl.isArray())
       {
+         // 返回表示数组的组件类型的Class。
+         // 如果这个类不代表一个数组类，这个方法返回null。
          String r = cl.getComponentType() + "[]{";
          for (int i = 0; i < Array.getLength(obj); i++)
          {
             if (i > 0) r += ",";
             Object val = Array.get(obj, i);
+            // 确定指定的Class对象是否表示一个基本类型。
+            // Determines if the specified Class object represents a primitive type.
             if (cl.getComponentType().isPrimitive()) r += val;
             else r += toString(val);
          }
